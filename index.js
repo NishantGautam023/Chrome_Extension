@@ -8,12 +8,28 @@ const ulEl = document.getElementById("ul-el")
 // when user clicks on the save it shoud be saved on this array
 let myLeads = []
 
+ // Implement localStorage session and  
+    // Fetch the localStorage and display it to the browser
+let leadsFromStorage = JSON.parse(localStorage.getItem("myLeads"))
+
+// if we getting value then add it to our array through truthy falsy option
+if(leadsFromStorage) {
+        myLeads = leadsFromStorage;
+        renderLeads();
+    }
+
+
+
 // Click eventListener
 inputBtn.addEventListener("click", function() {
     
     myLeads.push(inputEl.value);  // push whatever we type in the box  into the array
     
     inputEl.value = "";  // clear out the input field
+
+ 
+   
+
     renderLeads()  // Display the text by calling the renderLeads() function
 })
     
